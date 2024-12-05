@@ -1,0 +1,11 @@
+.redeem_code_input_wrap {
+  padding: 16px 24px;
+  border-radius: 4px;
+  background: #f7f9fb;
+}
+.redeem_code_tip {
+  font-size: 13px;
+  text-align: center;
+  color: var(--font-color-second);
+  font-weight: 400;
+}

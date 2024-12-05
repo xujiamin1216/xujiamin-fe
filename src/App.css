@@ -1,3 +1,36 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  color: var(--font-color-first);
+}
+
+:root {
+  --font-color-first: #333;
+  --font-color-second: #666;
+
+  --white-two: #e6e6e6;
+  --dark: #24273a;
+  --battleship-grey: #6b6d7a;
+  --faded-red: #e03c55;
+  --bluey-grey: #6b6d7a;
+  --charcoal-grey: #24273a;
+  --light-blue-grey: #c8cdd4;
+  --mid-blue: #2c59b7;
+  --watermelon: #fb4a60;
+  --white-three: #f8f8f8;
+  --pale-blue: #e3e5e8;
+  --sun-yellow: #ffd029;
+  --light-orange: #eeac57;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }

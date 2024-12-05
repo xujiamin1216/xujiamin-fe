@@ -1,6 +1,11 @@
 # 游戏礼包兑换系统
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 技术选型及理由
+
+react - 熟练一些  
+state + props - 单个页面，组件层次不深  
+不使用 UI 库 - To C  
+接口 - 暂时在页面里面模拟，时间来得及的话可以用 node.js 模拟服务接口
 
 ## Available Scripts
 
