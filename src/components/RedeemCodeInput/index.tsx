@@ -3,6 +3,7 @@ import {
   ClipboardEvent,
   FC,
   KeyboardEvent,
+  memo,
   useCallback,
   useEffect,
   useRef,
@@ -10,18 +11,18 @@ import {
 } from 'react';
 import './index.css';
 import { IGiftPack } from '../../types/giftPack';
+import { readHistory } from '../../utils/history';
 
-const RedeemCodeInput: FC<{ onUpdate: (data: IGiftPack) => void }> = ({
-  onUpdate,
-}) => {
+const RedeemCodeInput: FC<{
+  onExchange: (data: IGiftPack) => void;
+}> = ({ onExchange }) => {
   const [codes, setCodes] = useState<string[]>(
-    Array.from({ length: 16 }, () => '')
+    Array.from({ length: 16 }, () => '8')
   );
   const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
 
   const onChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>, index: number) => {
-      debugger;
       const currentValue = event.target.value.match(/^[\dA-Za-z]$/)
         ? event.target.value.toUpperCase() // 小写字母转化成大些
         : '';
@@ -77,34 +78,50 @@ const RedeemCodeInput: FC<{ onUpdate: (data: IGiftPack) => void }> = ({
     inputsRef.current[focusIndex]?.focus();
   }, []);
 
-  const verify = useCallback(() => {
+  const exchange = useCallback(() => {
     if (codes.some((item) => item === '')) {
       alert('请输入完整的礼品兑换码');
       return;
     }
     const value = codes.join('');
-    if (value === '8888888888888888') {
+    if (value.substring(0, 4) === '8888') {
+      const historyList = readHistory();
+      const item = historyList.find((item) => item.code === value);
+      if (item && item.status === '已领取') {
+        alert('礼品兑换码已被领取');
+        return;
+      }
       // 有效的
-      onUpdate({
+      onExchange({
+        code: value,
+        id: '1234',
         name: '惊喜大礼包',
-        descr: '一等奖',
-        expirationDate: new Date(2025, 1, 31).getTime(),
-        giftList: [
+        description: '一等奖',
+        expireTime: '2025-01-31',
+        items: [
           {
-            name: '机械键盘',
-            imgUrl: 'imgs/yufu.jpg',
-            count: 1,
+            id: '123',
+            name: '角色',
+            icon: 'imgs/yufu.jpg',
+            amount: 1,
+          },
+          {
+            id: '123',
+            name: '武器',
+            icon: 'imgs/yufu.jpg',
+            amount: 1,
           },
         ],
       });
-    } else if (value === '8888888888888889') {
-      // 已经使用
-      alert('礼品兑换码已使用');
-    } else {
+      // 清空
+      setCodes((oldValue) => oldValue.map(() => ''));
+    } else if (value.substring(0, 4) === '9999') {
       // 无效的
       alert('礼品兑换码无效，请检查是否输入正确');
+    } else {
+      alert('礼品兑换码已被领取');
     }
-  }, [codes]);
+  }, [codes, onExchange]);
 
   useEffect(() => {
     inputsRef.current[0]?.focus();
@@ -129,11 +146,11 @@ const RedeemCodeInput: FC<{ onUpdate: (data: IGiftPack) => void }> = ({
           />
         ))}
       </div>
-      <button className="verify_redeem_code" onClick={verify}>
-        验证
+      <button className="exchange_redeem_code" onClick={exchange}>
+        兑换
       </button>
     </div>
   );
 };
 
-export default RedeemCodeInput;
+export default memo(RedeemCodeInput);

@@ -1,0 +1,27 @@
+.history_wrap {
+  margin-top: 36px;
+}
+
+.history_list {
+  margin: 0;
+  padding: 0 24px 16px;
+  list-style: none;
+}
+.history_item {
+  display: flex;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #ddd;
+}
+.history_info {
+  flex: 1;
+}
+.history_name {
+  margin-bottom: 0;
+}
+
+.history_status {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: red;
+}

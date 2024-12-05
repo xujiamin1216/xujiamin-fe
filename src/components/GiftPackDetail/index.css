@@ -1,0 +1,85 @@
+.gift_pack_detail {
+  padding: 0 24px;
+}
+
+.gift_pack_name {
+  text-align: center;
+}
+.gift_pack_descr {
+  text-align: center;
+  color: var(--font-color-second);
+}
+
+.gift_list {
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.gift_item {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.gift_icon {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+.gift_info {
+  width: 0;
+  flex: 1;
+}
+
+.gift_pack_expire_time {
+  margin-top: 24px;
+  color: red;
+  font-weight: 500;
+  text-align: center;
+}
+
+.gift_pack_operation {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.giveup_gift_pack {
+  -webkit-appearance: none;
+  width: 120px;
+  height: 38px;
+  line-height: 36px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  outline: none;
+  cursor: pointer;
+  margin-right: 36px;
+}
+
+.exchange_gift_pack {
+  -webkit-appearance: none;
+  width: 120px;
+  height: 38px;
+  line-height: 38px;
+  color: #fff;
+  text-align: center;
+  background: #4684e2;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

@@ -1,12 +1,15 @@
 export interface IGiftItem {
+  id: string;
   name: string;
-  imgUrl: string;
-  count: number;
+  icon: string;
+  amount: number;
 }
 
 export interface IGiftPack {
+  code: string;
+  id: string;
   name: string;
-  descr: string;
-  expirationDate: number;
-  giftList: IGiftItem[];
+  description: string;
+  expireTime: string;
+  items: IGiftItem[];
 }
