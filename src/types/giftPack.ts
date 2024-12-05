@@ -1,6 +1,6 @@
 export interface IGiftItem {
-  imgUrl: string;
   name: string;
+  imgUrl: string;
   count: number;
 }
 

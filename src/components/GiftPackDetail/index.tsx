@@ -1,5 +1,5 @@
 const GiftPackDetail = () => {
-  return <></>;
-}
+  return <>12333</>;
+};
 
 export default GiftPackDetail;
