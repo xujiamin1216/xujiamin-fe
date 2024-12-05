@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# 游戏礼包兑换系统
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
