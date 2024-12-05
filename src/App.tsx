@@ -43,6 +43,14 @@ function App() {
     setGiftPack(undefined);
   }, []);
 
+  const updateHistoryStatus = useCallback((index: number) => {
+    const result = historyList.map((item, i) =>
+      i === index ? { ...item, status: '已领取' } : item
+    );
+    setHistoryList(result);
+    writeHistory(result);
+  }, []);
+
   const onAward = useCallback(
     (detail: IGiftPack) => {
       setGiftPack(undefined);
@@ -69,7 +77,9 @@ function App() {
           onAward={onAward}
         />
       ) : null}
-      {historyList.length > 0 ? <ExchangeHistory list={historyList} /> : null}
+      {historyList.length > 0 ? (
+        <ExchangeHistory list={historyList} onAward={updateHistoryStatus} />
+      ) : null}
     </div>
   );
 }

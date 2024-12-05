@@ -13,7 +13,7 @@ const GiftPackDetail: FC<{
 
   const onAwardClick = useCallback(() => {
     // @no-restricted-globals
-    if (window.confirm('兑换完成后不能撤销，是否确认兑换？')) {
+    if (window.confirm('领取后不能撤销，是否确认领取？')) {
       onAward(detail);
       alert('领取成功');
     }
